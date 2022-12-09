@@ -3,6 +3,7 @@ const inputElement = document.querySelector('input#validation-input');
 inputElement.addEventListener('blur', checkInputElement);
 
 function checkInputElement() {
+  // addPrefix just for fun :)
   const addPrefix = inputElement.value.length < inputElement.dataset.length ? 'in' : '';
   inputElement.classList.add(`${addPrefix}valid`);
   inputElement.classList.remove(`${addPrefix === 'in' ? '' : 'in'}valid`);
