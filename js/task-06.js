@@ -3,10 +3,14 @@ const inputElement = document.querySelector('input#validation-input');
 inputElement.addEventListener('blur', checkInputElement);
 
 function checkInputElement() {
-  // addPrefix just for fun :)
-  const addPrefix = inputElement.value.length < inputElement.dataset.length ? 'in' : '';
-  inputElement.classList.add(`${addPrefix}valid`);
-  inputElement.classList.remove(`${addPrefix === 'in' ? '' : 'in'}valid`);
+  const classes = inputElement.classList;
+  if (inputElement.value.length.toString() === inputElement.dataset.length) {
+    classes.remove('invalid');
+    classes.add('valid');
+    return;
+  }
+  classes.remove('valid');
+  classes.add('invalid');
 }
 
 // console.log(inputElement);
