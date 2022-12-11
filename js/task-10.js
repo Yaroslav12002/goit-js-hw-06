@@ -5,7 +5,6 @@ function getRandomHexColor() {
 const createElement = document.querySelector('button[data-create]');
 const destroyElement = document.querySelector('button[data-destroy]');
 const boxesElement = document.querySelector('div#boxes');
-let lastBoxNumber = 0;
 
 createElement.addEventListener('click', takeNumber);
 destroyElement.addEventListener('click', destroyBoxes);
@@ -17,6 +16,7 @@ function takeNumber() {
 
 function createBox(amount) {
   const userBoxes = [];
+  const lastBoxNumber = boxesElement.querySelectorAll('div').length;
 
   for (let i = 0; i < amount; i += 1) {
     const box = document.createElement('div');
@@ -32,13 +32,11 @@ function createBox(amount) {
     userBoxes.push(box);
   }
 
-  lastBoxNumber += amount;
   boxesElement.append(...userBoxes);
 }
 
 function destroyBoxes() {
   boxesElement.innerHTML = '';
-  lastBoxNumber = 0;
 }
 // Напиши скрипт создания и очистки коллекции элементов.
 // Пользователь вводит количество элементов в input и нажимает кнопку Создать,
