@@ -1,11 +1,11 @@
 const inputElement = document.querySelector('input#name-input');
 const outputSpanElement = document.querySelector('span#name-output');
 
-inputElement.addEventListener('input', changeOutputElement);
+inputElement.addEventListener('input', onChangeOutputElement);
 
-function changeOutputElement() {
+function onChangeOutputElement() {
   const value = inputElement.value;
-  outputSpanElement.textContent = value === '' ? 'Anonymous' : value;
+  outputSpanElement.textContent = !value ? 'Anonymous' : value;
 }
 
 // Задание 5
